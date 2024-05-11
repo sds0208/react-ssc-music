@@ -1,10 +1,11 @@
-import Samples from "./Samples"
+import Samples from './Samples'
+import { musicSamples } from '../data/music-samples'
 
 const Featured = () => {
   return (
     <div className="featured">
-      <h2>Featured Music Samples</h2>
-      <Samples featured={true} />
+        <h2>Featured Music</h2>
+        <Samples featured={true} musicSamples={ musicSamples }/>
     </div>
   )
 }

@@ -1,21 +1,22 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FaMusic } from 'react-icons/fa'
 
 const Nav = () => {
+  const linkClass = ({ isActive }) => isActive ? 'active-link link' : 'link';
   return (
     <>
       <nav>
-        <Link to="/" className="link logo-link">
+        <NavLink to="/" className="link logo-link">
           <div className="logo">
-            <FaMusic />
+            <FaMusic className="logo-icon"/>
             <div className="logo-text">SSC MUSIC</div>
           </div>
-        </Link>
+        </NavLink>
         <div className="links-container">
-          <Link to="/" className="link">Home</Link>
-          <Link to="/samples" className="link">Music</Link>
-          <Link to="/about" className="link">About</Link>
-          <Link to="/contact" className="link contact">Contact</Link>
+          <NavLink to="/" className={linkClass}>Home</NavLink>
+          <NavLink to="/samples" className={linkClass}>Music</NavLink>
+          <NavLink to="/about" className={linkClass}>About</NavLink>
+          <NavLink to="/contact" className='link contact'>Contact</NavLink>
         </div>
       </nav>
     </>

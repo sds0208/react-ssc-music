@@ -1,12 +1,15 @@
 import Card from './Card'
-import { musicSamples } from '../data/music-samples'
+import { percussionEnsembles } from '../data/music-samples'
 
-const Samples = ({ featured }) => {
-  const samples = featured ? musicSamples.slice(0, 3) : musicSamples;
+const Samples = ({ featured = false, musicSamples }) => {
+  let samples = musicSamples;
+  if (featured) {
+    samples = musicSamples.filter((sample) => sample.featured).concat(percussionEnsembles.filter((sample) => sample.featured))
+  }  
   return (
     <div className="samples">
-        {samples.map((sample) => (
-          <Card key={sample.id} sample={sample} />
+      {samples.map((sample) => (
+        <Card key={sample.id} sample={sample} />
       ))}
     </div>
   )

@@ -1,9 +1,22 @@
-const Hero = ({ title = 'Percussion Composition and Arranging Services', subtitle = 'By Sarah Santa Cruz. For marching band & percussion ensemble.' }) => {
+const Hero = () => {
   return (
     <div className="hero">
       <div className="hero-inner">
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
+        <h1>Percussion Composition and Arranging Services</h1>
+        <p>By Sarah Santa Cruz</p>
+        <p>For front ensemble & percussion ensemble</p>
+      </div>
+      <div className="hero-bottom">
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
       </div>
     </div>
   )

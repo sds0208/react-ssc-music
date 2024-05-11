@@ -1,3 +1,48 @@
+$black-color: #222;
+$white-color: #fff;
+$blue-color: #0398fc;
+$purple-color: #af69ef;
+
+@mixin dotted-blue-underline {
+  text-decoration: $blue-color dotted underline 10px;
+  text-underline-offset: 15px;
+}
+
+@mixin small-dotted-purple-underline {
+  text-decoration: $purple-color dotted underline 7.5px;
+  text-underline-offset: 7.5px;
+}
+
+@mixin flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin button-all {
+  padding: 15px;
+  border-radius: 5px;
+}
+
+@mixin black-button {
+  @include button-all;
+  background: $black-color;
+  color: $white-color;
+  &:hover {
+    background: $purple-color;
+    text-decoration: none;
+  }
+}
+
+@mixin purple-button {
+  @include button-all;
+  background: $purple-color;
+  color: $black-color;
+  &:hover {
+    background: $white-color;
+    text-decoration: none;
+  }
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
@@ -7,7 +52,7 @@
 body {
   margin: 0;
   padding-bottom: 100px;
-  color: #222;
+  color: $black-color;
 }
 
 .page {
@@ -15,21 +60,9 @@ body {
   margin: 0 auto;
 }
 
-button {
-  cursor: pointer;
-}
-
 .button-link {
-  background: #222;
-  color: #fff;
-  padding: 15px;
-  border: 3px solid transparent;
-  border-radius: 5px;
+  @include black-button;
   text-decoration: none;
-
-  &:hover {
-    background: #af69ef;
-  }
 }
 
 nav {
@@ -38,11 +71,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 30px;
-  color: #fff;
-  background: #222;
+  color: $white-color;
+  background: $black-color;
   position: sticky;
   top: 0;
-  box-shadow: 0 0 7px #222;
+  box-shadow: 0 0 7px $black-color;
+  z-index: 10;
 
   .logo-link:hover {
     text-decoration: none;
@@ -50,57 +84,64 @@ nav {
 
   .logo {
     font-size: 30px;
-    font-weight: bold;
     display: flex;
-    border: 2px solid #fff;
-    border-radius: 5px;
     padding: 15px;
     letter-spacing: 1.5px;
 
     &:hover {
-      color: #222;
-      background: #fff;
+      color: $black-color;
+      background: $white-color;
+    }
+
+    .logo-icon {
+      font-size: 40px;
+      margin-top: 15px;
+      margin-right: 5px;
     }
 
     .logo-text {
-      font-family: "Jersey 25", sans-serif;
+      font-family: "Rock Salt", cursive;
       margin-left: 15px;
     }
   }
 
   .link {
     margin-left: 15px;
-    color: #fff;
+    color: $white-color;
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: $white-color solid underline 5px;
+    }
+
+    &.active-link {
+      text-decoration: $blue-color solid underline 5px;
     }
 
     &.contact {
-      background: #fff;
-      color: #222;
-      padding: 15px;
-      border: 3px solid transparent;
-      border-radius: 5px;
+      @include purple-button;
+      font-weight: bold;
 
-      &:hover {
-        text-decoration: none;
-        // border: 3px solid #af69ef;
-        background: #af69ef;
+      &.active-link {
+        background: $blue-color;
       }
     }
   }
 }
 
 .hero {
-  background: #0398fc;
-  height: 300px;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: $blue-color;
+  height: 400px;
+  padding: 60px 30px 30px;
+  @include flex-justify-center;
+  // align-items: center;
   text-align: center;
+  position: relative;
+  --mask:
+    radial-gradient(178.89px at 50% calc(100% - 240px),#000 99%,#0000 101%) calc(50% - 160px) 0/320px 100%,
+    radial-gradient(178.89px at 50% calc(100% + 160px),#0000 99%,#000 101%) 50% calc(100% - 80px)/320px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
 
   @media (min-width: 1601px) {
     border-radius: 5px;
@@ -114,24 +155,29 @@ nav {
 }
 
 .featured {
-  padding: 30px;
+  padding: 0 30px;
 
   h2 {
     text-align: center;
+    @include small-dotted-purple-underline;
   }
 }
 
 .samples {
-  display: flex;
+  @include flex-justify-center;
   flex-wrap: wrap;
-  justify-content: center;
   padding: 0 15px;
 }
 
+.featured-ensembles {
+  @include flex-justify-center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .button-group {
-  display: flex;
+  @include flex-justify-center;
   flex-wrap: wrap;
-  justify-content: center;
 
   .button-link {
     margin: 15px;
@@ -143,10 +189,10 @@ nav {
   padding: 15px;
   width: 330px;
   border-radius: 5px;
-  border: 1px solid #222;
+  box-shadow: 0 0 10px 0 rgb(34,34,34,0.5);
 
   &.card-playing {
-    background: #af69ef;
+    background: $purple-color;
   }
 }
 
@@ -154,8 +200,7 @@ nav {
   h1 {
     padding: 30px 30px;
     text-align: center;
-    text-decoration: #0398fc dotted underline 10px;
-    text-underline-offset: 15px;
+    @include dotted-blue-underline;
   }
 
   h2 {
@@ -166,5 +211,66 @@ nav {
   p.section-description {
     padding: 0 30px 30px;
     text-align: center;
+  }
+}
+
+.about-page {
+   
+  h1 {
+    margin: 60px;
+    text-align: center;
+    @include dotted-blue-underline;
+  }
+
+  .about-content {
+    display: flex;
+    padding: 30px;
+
+    .headshot {
+      min-width: 300px;
+      height: 300px;
+      background: $black-color; 
+      margin-right: 30px;
+    }
+  }
+}
+
+.contact-page {
+  text-align: center;
+
+  h1 {
+    @include dotted-blue-underline;
+    margin: 60px 0;
+    padding: 0 30px;
+  }
+
+  p {
+    padding: 0 30px;
+
+    &.subheader {
+      margin-bottom: 30px;
+    }
+
+    strong {
+      margin-right: 5px;
+    }
+
+    .contact-link {
+      color: $purple-color;
+    }
+  }
+}
+
+.not-found-page {
+  text-align: center;
+  padding-top: 60px;
+
+  .not-found-icon {
+    color: orange;
+    font-size: 100px;
+  }
+
+  p {
+    padding-bottom: 30px;
   }
 }
