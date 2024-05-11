@@ -52,7 +52,9 @@ export const percussionEnsembles = [
     title: 'A Cantiga',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     score: 'score.png',
-    audio: 'sc-22-p3.mp3',
+    audio: 'a-cantiga.mp3',
+    video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/PSmDvUNv064?si=Xu-n0qZ2o_F3XjvK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+    link: 'https://c-alanpublications.com/a-cantiga/',
     featured: true
   },
   {
@@ -60,20 +62,26 @@ export const percussionEnsembles = [
     title: 'Sky Music',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     score: 'score.png',
-    audio: 'sc-22-p3.mp3'
+    link: 'https://www.tapspace.com/percussion-ensemble/sky-music',
+    audio: null,
+    video: `<iframe width="560" height="315" src="https://www.youtube.com/embed/Sax2YQHyd8o?si=dE3pQLbtEu1ftRj-&amp;start=277" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
   },
   {
     id: 9,
     title: 'Brightly Shining',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     score: 'score.png',
-    audio: 'sc-22-p3.mp3'
+    link: 'https://www.jwpepper.com/10085602.item',
+    audio: null,
+    video: null
   },
   {
     id: 10,
     title: 'Into the Blue',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     score: 'score.png',
-    audio: 'sc-22-p3.mp3'
+    link: '/contact',
+    audio: null,
+    video: `<iframe width="560" height="315" src="https://www.youtube.com/embed/DY-3y5as4-Q?si=8OwfquuQpr-uJywL&amp;start=277" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
   },
 ];
