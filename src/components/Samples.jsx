@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Card from './Card'
-// import { percussionEnsembles } from '../data/music-samples'
+import Spinner from './Spinner';
 
 const Samples = ({ featured = false, isPercEns = false }) => {
   const [allSamples, setAllSamples] = useState([]);
@@ -19,7 +19,6 @@ const Samples = ({ featured = false, isPercEns = false }) => {
           data = data.musicSamples;
         }
         setAllSamples(data);
-        console.log(data);
         
       } catch (error) {
         console.error('Error in fetch call for music samples.', error);
@@ -29,13 +28,18 @@ const Samples = ({ featured = false, isPercEns = false }) => {
     }
 
     fetchAllSamples();
-  }, []);
+  }, [featured, isPercEns]);
    
   return (
     <div className={ isPercEns ? 'samples percussion-ensembles' : 'samples' }>
-      {allSamples.map((sample) => (
-        <Card key={sample.id} sample={sample} />
-      ))}
+      {
+        loading ? <Spinner loading={ loading }/> :
+        <>
+          {allSamples.map((sample) => (
+            <Card key={sample.id} sample={sample} />
+          ))}
+        </>
+      }
     </div>
   )
 }
