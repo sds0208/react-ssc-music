@@ -2,7 +2,7 @@ import headshot from '../assets/SSC-Headshot.jpeg'
 
 const AboutPage = () => {
   return (
-    <div className="about-page">
+    <div className="about-page page">
       <h1>About Sarah</h1>
       <div className="about-content">
         <div className="headshot">

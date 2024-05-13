@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   return (
-    <div className="contact-page">
+    <div className="contact-page page">
       <h1>Contact Sarah</h1>
       <p className="subheader">If you are interested in learning more about working with me for either front ensemble arranging or commissioning a percussion ensemble, please get in touch!</p>
       <p className="contact-info">
