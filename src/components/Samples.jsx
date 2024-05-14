@@ -9,7 +9,8 @@ const Samples = ({ featured = false, isPercEns = false }) => {
   useEffect(() => {
     const fetchAllSamples = async () => {
       try {
-        const res = await fetch('http://localhost:3000');
+        // const res = await fetch('http://localhost:3000');
+        const res = await fetch('https://ssc-music-api-aade7303f89a.herokuapp.com/music');
         let data = await res.json();
         if (featured) {
           data = data.musicSamples.filter((sample) => sample.featured).concat(data.percussionEnsembles.filter((sample) => sample.featured))
