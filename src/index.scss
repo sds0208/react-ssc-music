@@ -309,6 +309,14 @@ nav {
 
   &.card-playing {
     background: $purple-color;
+
+    .card-link {
+      color: $black-color;
+
+      &:hover {
+        color: $white-color;
+      }
+    }
   }
 
   .card-description {
@@ -325,6 +333,14 @@ nav {
       text-align: center;
       padding-top: 140px;
     }
+  }
+
+  audio {
+    margin-top: 15px;
+  }
+
+  .card-link {
+    color: $purple-color;
   }
 }
 

@@ -1,15 +1,28 @@
 import { useEffect, useState } from 'react'
 import Card from './Card'
 import Spinner from './Spinner';
+// import data from '../data/music-samples.json';
 
 const Samples = ({ featured = false, isPercEns = false }) => {
   const [allSamples, setAllSamples] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Used when testing locally
+  // let dataToUse = data;
+  // if (featured) {
+  //   dataToUse = dataToUse.musicSamples.filter((sample) => sample.featured).concat(dataToUse.percussionEnsembles.filter((sample) => sample.featured))
+  // } else if (isPercEns) {
+  //   dataToUse = dataToUse.percussionEnsembles;
+  // } else {
+  //   dataToUse = dataToUse.musicSamples;
+  // }
+  // setAllSamples(dataToUse);
+  // setLoading(false);
+
+  // Used in production
   useEffect(() => {
     const fetchAllSamples = async () => {
       try {
-        // const res = await fetch('http://localhost:3000');
         const res = await fetch('https://ssc-music-api-aade7303f89a.herokuapp.com/music');
         let data = await res.json();
         if (featured) {
@@ -36,6 +49,7 @@ const Samples = ({ featured = false, isPercEns = false }) => {
       {
         loading ? <Spinner loading={ loading }/> :
         <>
+          {/* Use dataToUse when testing; use allSamples in production */}
           {allSamples.map((sample) => (
             <Card key={sample.id} sample={sample} />
           ))}
