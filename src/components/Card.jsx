@@ -9,7 +9,7 @@ const Card = ({ sample }) => {
       {/* <FaMusic /> */}
       <h3 className="card-title">{sample.title}</h3>
       <p className="card-description">{sample.description}</p>
-      <audio controls className={`${sample.audio ? '' : 'hide'}`} src={`public/${sample.audio}`} onPlay={() => setAudioPlaying(true)} onPause={() => setAudioPlaying(false)}></audio>
+      <audio controls className={`${sample.audio ? '' : 'hide'}`} src={`/${sample.audio}`} onPlay={() => setAudioPlaying(true)} onPause={() => setAudioPlaying(false)}></audio>
       <div className={`${sample.percEns ? 'youtube-video': 'youtube-video hide'}`}>
         { sample.video ? parse(sample.video) : <div className="video-placeholder">Video coming soon!</div> }
       </div>
