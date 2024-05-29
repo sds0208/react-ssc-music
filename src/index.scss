@@ -318,7 +318,7 @@ nav {
   background: $white-color;
 
   &.card-playing {
-    background: $purple-color;
+    background-image: linear-gradient(to bottom right, $light-grey-color, $purple-color);
 
     .card-link {
       color: $black-color;
