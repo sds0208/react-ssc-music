@@ -2,6 +2,7 @@ $black-color: #222;
 $white-color: #fff;
 $blue-color: #0398fc;
 $purple-color: #af69ef;
+$light-grey-color: #fafafa;
 
 @mixin dotted-blue-underline {
   text-decoration: $blue-color dotted underline 10px;
@@ -55,7 +56,6 @@ $purple-color: #af69ef;
 
 body {
   margin: 0;
-  padding-bottom: 100px;
   color: $black-color;
 }
 
@@ -82,19 +82,17 @@ nav {
   box-shadow: 0 0 7px $black-color;
   z-index: 10;
 
-  .logo-link:hover {
-    text-decoration: none;
-  }
-
-  .logo {
+  #logo-link {
     font-size: 30px;
-    display: flex;
-    padding: 15px;
     letter-spacing: 1.5px;
+    margin-left: 0;
 
     &:hover {
-      color: $black-color;
-      background: $white-color;
+      text-decoration: none;
+    }
+
+    .logo {
+      display: flex;
     }
 
     .logo-icon {
@@ -136,12 +134,15 @@ nav {
     height: 80px;
     padding: 0;
 
-    .logo {
-      font-size: 20px;
-
-      .logo-icon {
-        font-size: 26px;
-        margin-top: 12px;
+    #logo-link {
+      .logo {
+        font-size: 20px;
+        margin-left: 30px;
+  
+        .logo-icon {
+          font-size: 26px;
+          margin-top: 12px;
+        }
       }
     }
 
@@ -218,28 +219,33 @@ nav {
 }
 
 .hero {
-  background: $blue-color;
-  height: 400px;
-  padding: 60px 30px 30px;
+  padding: 60px 30px 75px;
   @include flex-justify-center;
   text-align: center;
   position: relative;
-  @media (min-width: 481px) {
-    --mask:
-    radial-gradient(178.89px at 50% calc(100% - 240px),#000 99%,#0000 101%) calc(50% - 160px) 0/320px 100%,
-    radial-gradient(178.89px at 50% calc(100% + 160px),#0000 99%,#000 101%) 50% calc(100% - 80px)/320px 100% repeat-x;
-    -webkit-mask: var(--mask);
-          mask: var(--mask);
+  background-image: linear-gradient(to bottom, $purple-color, $blue-color, $white-color);
+
+  h1 {
+    font-size: 72px;
   }
 
   p {
-    font-style: italic;
-    font-size: 20px;
+    font-size: 36px;
+    font-family: "Rock Salt", cursive;
   }
 
   @media (min-width: 1601px) {
     border-radius: 5px;
-    margin-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 24px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -259,6 +265,7 @@ nav {
 
 .featured {
   padding: 0 30px;
+  background-image: linear-gradient(to bottom, $white-color, $light-grey-color);
 
   h2 {
     text-align: center;
@@ -293,6 +300,8 @@ nav {
 .button-group {
   @include flex-justify-center;
   flex-wrap: wrap;
+  padding-bottom: 100px;
+  background: $light-grey-color;
 
   .button-link {
     margin: 15px;
@@ -306,6 +315,7 @@ nav {
   max-width: 330px;
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgb(34,34,34,0.5);
+  background: $white-color;
 
   &.card-playing {
     background: $purple-color;
@@ -345,6 +355,9 @@ nav {
 }
 
 .samples-page {
+  padding-bottom: 100px; 
+  background-image: linear-gradient(to bottom, $white-color, $blue-color, $purple-color);
+
   h1 {
     padding: 30px 30px;
     text-align: center;
@@ -370,9 +383,12 @@ nav {
 }
 
 .about-page {
+  height: 100vh;
+  background: $light-grey-color;
    
   h1 {
-    margin: 60px;
+    padding: 60px;
+    margin-top: 0;
     text-align: center;
     @include dotted-blue-underline;
   }
@@ -398,11 +414,13 @@ nav {
 
 .contact-page {
   text-align: center;
+  background: $light-grey-color;
+  height: 100vh;
 
   h1 {
     @include dotted-blue-underline;
-    margin: 60px 0;
-    padding: 0 30px;
+    margin: 0;
+    padding: 60px 30px 30px;
   }
 
   p {
